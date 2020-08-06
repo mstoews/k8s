@@ -1,0 +1,14 @@
+
+# kdd yaml download 
+wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
+
+# setup the calico yaml
+wget https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+
+# This is the ip for the cluster ... the address 0 to 16 
+kubeadm init --pod-network-cidr=192.168.0.0/16
+
+kubectl apply -f rbac-kdd.yaml
+
+kubectl apply -f calico.yam
+                
